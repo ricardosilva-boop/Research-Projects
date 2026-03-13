@@ -1,10 +1,14 @@
 # Research-Projects
 My projects aim to apply machine learning methods to solve problems related to Mining Engineering.
-# Project Goal for 3D CNN
-This project aims to estimate Molybdenum (Mo) concentration in a 3D geological model using a 3D Convolutional Neural Network (CNN). The goal is to build a robust model that can predict Mo concentrations based on spatial coordinates (X, Y, Z) and associated Copper (Cu) values and then evaluate its performance using various statistical metrics and visualizations.
 
-Notebook Steps
+## Project Goal for 3D CNN
+
+This project aims to estimate **Molybdenum (Mo)** concentration in a 3D geological model using a **3D Convolutional Neural Network (CNN)**. The goal is to build a robust model that can predict Mo concentrations based on spatial coordinates (X, Y, Z) and associated **Copper (Cu)** values, and then evaluate its performance using various statistical metrics and visualizations.
+
+### Notebook Steps
+
 The following steps were executed in the notebook to achieve the project goal:
+
 1.	Import Libraries: Essential libraries for data manipulation (pandas, numpy), spatial interpolation (scipy), machine learning (sklearn, tensor- flow) and plotting (matplotlib) were imported.
 2.	Load Data: The dataset Cu_Mo_processed.csv was loaded, containing pre-processed spatial coordinates (X, Y, Z) and concentrations of Copper (Cu) and Molybdenum (Mo). An additional dataset Cu_Mo.csv was loaded for evaluation.
 3.	Define 3D Grid: A regular 3D grid was defined across the spatial extent of the data. The grid cell dimensions were set to CELL_X=25, CELL_Y=25, CELL_Z=25, with a PADDING of 0.2 to cover the full data range.
