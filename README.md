@@ -3,7 +3,7 @@ My projects aim to apply machine learning methods to solve problems related to M
 # Project Goal for 3D CNN
 This project aims to estimate Molybdenum (Mo) concentration in a 3D geological model using a 3D Convolutional Neural Network (CNN). The goal is to build a robust model that can predict Mo concentrations based on spatial coordinates (X, Y, Z) and associated Copper (Cu) values and then evaluate its performance using various statistical metrics and visualizations.
 
-Notebook Steps
+# Notebook Steps
 The following steps were executed in the notebook to achieve the project goal:
 1.	Import Libraries: Essential libraries for data manipulation (pandas, numpy), spatial interpolation (scipy), machine learning (sklearn, tensor- flow) and plotting (matplotlib) were imported.
 2.	Load Data: The dataset Cu_Mo_processed.csv was loaded, containing pre-processed spatial coordinates (X, Y, Z) and concentrations of Copper (Cu) and Molybdenum (Mo). An additional dataset Cu_Mo.csv was loaded for evaluation.
@@ -17,17 +17,17 @@ The following steps were executed in the notebook to achieve the project goal:
 10.	Calculate Metrics: Key evaluation metrics including Root Mean Squared Error (RMSE), Mean Error (ME), Correlation (Corr), and R-squared (R2) were calculated for both log-transformed and original Mo values. Additionally, skewness and kurtosis of the residuals were computed.
 11.	Generate Plots: Histograms of residuals (log and original) with superim- posed normal distribution curves, and scatter plots of real vs. estimated Mo values (log and original), were generated to visually assess model performance and residual distribution.
 
-Key Evaluation Metrics Summary
+# Key Evaluation Metrics Summary
 The model’s performance was evaluated on both log-transformed and original scales:
 Log Scale: * RMSE: 0.2573 * ME: 0.0966 * Correlation (r): 0.8836 * R2: 0.7447 * Skewness: 0.4656 * Kurtosis: 5.8790
 Original Scale (Bias-Corrected): * RMSE: 0.0294 * ME: 0.0042 * Correlation (r): 0.7831 * R2: 0.5912 * Skewness: 9.6105 * Kurtosis: 166.5242
 The original scale metrics were calculated using a bias correction term (exp(Mo_est_log + 0.5 * Var_log)), where Var_log was approximated by the variance of Mo_est_CNN_log from the df_blocos due to the absence of specific variance estimates per block.
 
-Generated Plots
+# Generated Plots
 •	Residual Histograms (log and original scale): These plots show the distribution of the difference between real and estimated Mo values. For the log scale, the residuals tend to be closer to a normal distribution, while on the original scale, the distribution is highly skewed, indicating challenges in predicting higher concentrations accurately and the need for log-transformation for modeling.
 •	Scatterplots of Real vs. Estimated Values (log and original scale): These plots visualize the correlation between the actual and predicted Mo concentrations. The log scale plot shows a strong linear relationship, confirming the high correlation coefficient. The original scale plot shows more scatter, especially at higher concentrations, which is reflected in the lower correlation and R2 score compared to the log scale.
  
-How to Reproduce all Cells Quickly
+# How to Reproduce all Cells Quickly
 To reproduce the results, ensure you have the following CSV files in the same directory as the notebook: * Cu_Mo_processed.csv * Cu_Mo.csv * cnn_3d_var_log.csv (if using the variance from a previously saved file, otherwise df_blocos["Mo_est_CNN_log"].var( ) is used as a fallback).
 Run all cells sequentially in the provided Jupyter Notebook or Colab environment. The modelo_blocos_CNN_2_2.csv file, containing the estimated block model, will be generated upon successful execution.
 
